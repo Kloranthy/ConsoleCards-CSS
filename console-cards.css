@@ -1,0 +1,701 @@
+@charset "utf-8";
+/* CSS Document */
+/******************************************************************************/
+/*
+ *  Console Cards CSS
+ * a css stylesheet aiming to recreate the classic
+ * shades of green on black aesthetic while using
+ * modern ux designs.
+ *
+ *  Author: Josh Weigel
+ *  Last Updated: 17 DEC 2016
+ *
+*/
+/******************************************************************************/
+
+/******************************************************************************/
+/** Eric Meyer's CSS reset **/
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** End of Eric Meyer's CSS reset **/
+/******************************************************************************/
+
+/******************************************************************************/
+/*
+ * Console Cards seperates things into 3 levels:
+ * site - top level domain such as the index or application window.
+ * page - a screen containing related information and functions.
+ * card - displays information regarding a single topic and the
+ *        actions available to the user on that topic.
+ *
+ * cards can come in small, medium, or large sizes.
+ * how each size is displayed is determined by the screen size.
+*/
+/** custom containers **/
+/*
+ * site-header
+ * container for the site header elements.
+*/
+/*
+ * site-body
+ * container for the pages embedded as iframes.
+*/
+/*
+ * site-footer
+ * container for the site footer elements.
+*/
+
+/*
+ * page-header
+ * container for the page header elements.
+*/
+/*
+ * page-body
+ * container for the page body elements.
+*/
+/*
+ * page-footer
+ * container for the page footer elements.
+*/
+
+/*
+ * card-header
+ * container for the card header elements.
+*/
+/*
+ * card-body
+ * the contents of the card.
+*/
+/*
+ * card-tray
+ * optional expandable region.
+*/
+/*
+ * card-footer
+ * container for card footer elements.
+*/
+
+/*
+ * frame-container
+ * container for a frame holder.
+*/
+/*
+ * frame-holder
+ * an iframe containing a page.
+*/
+
+/*
+ * nav-bar
+ * container for the nav tabs.
+*/
+
+/*
+ * logo-holder
+ * container for the site logo.
+*/
+
+/** custom elements **/
+/*
+ * site-logo
+ * image of the site logo.
+*/
+/*
+ * site-title
+ * the title region of the site.
+*/
+
+/*
+ * card-title
+ * topic of the card.
+*/
+/*
+ * card-text
+ * text content of the card.
+*/
+
+/*
+ * nav-tab
+ * stylized anchor used for navigation.
+*/
+
+/******************************************************************************/
+/** platform agnostic styling **/
+/******************************************************************************/
+/******************************************************************************/
+/** color **/
+/******************************************************************************/
+a, .card-text, button:active, .nav-tab:active, td, .dim-cell,
+.bright-cell {
+  color: #00ff00;
+}
+
+button:hover, button:focus {
+  color: #00dd00;
+}
+
+button {
+  color: #00cc00;
+}
+
+button:disabled, nav-tab:disabled {
+  color: #008800;
+}
+
+.nav-tab:hover, .nav-tab:focus {
+  color: #002200;
+}
+
+.site-title, .page-title, .card-title, .nav-tab, th {
+  color: #000000;
+}
+
+
+/******************************************************************************/
+/** background color **/
+/******************************************************************************/
+/* containers */
+.site-title, .page-title, .card-title, th {
+  background-color: #008800;
+}
+
+.frame-container, .card, .nav-bar, table {
+  background-color: #003300;
+}
+
+.site-header, .site-footer, .page-header, .page-footer, .card-header,
+.card-footer {
+  background-color: #002200;
+}
+
+.site-body, .frame-holder, .page-body, .card-body, .card-tray, ul, ol {
+  background-color: #001100;
+}
+
+/* elements */
+button:active, .nav-tab:active {
+  background-color: #008800;
+}
+
+button:hover, button:focus, .nav-tab:hover, .nav-tab:focus {
+  background-color: #006600;
+}
+
+.nav-tab {
+  background-color: #005500;
+}
+
+button, button:disabled, nav-tab:disabled, .bright-cell {
+  background-color: #003300;
+}
+
+a, .card-text, .dim-cell {
+  background-color: #001100;
+}
+
+.logo-holder, .site-logo, img, .google-map, td {
+  background-color: #000000;
+}
+
+/*
+ * debug
+ * bright color on a bright background
+ * used for troubleshooting in development,
+ * unused and commented out when in production
+*/
+/*
+{
+  color: #ffff00;
+  background-color: #ffff00;
+}
+*/
+
+/******************************************************************************/
+/** border **/
+/******************************************************************************/
+/*
+ * standard control
+ * bright color against a neutral background
+ * used for elements the user can interact with
+*/
+button, .nav-tab {
+  border: thin solid #00cc00;
+}
+/*
+ * disabled control
+ * dim color against a neutral background
+ * used for elements which are not available
+ * for the user to interact with
+*/
+button:disabled, nav-tab:disabled {
+  border: thin solid #008800;
+}
+/*
+ * focused control
+ * brightest color against a lit background
+ * used for elements the user is interacting with
+*/
+button:hover, button:focus, .nav-tab:hover, .nav-tab:focus {
+  border: thin solid #00dd00;
+}
+/*
+ * active control
+ * brightest color against a lit background
+ * used for elements the user has interacted with
+*/
+button:active, .nav-tab:active, {
+  border: thin solid #00ff00;
+}
+
+/******************************************************************************/
+/** font **/
+/******************************************************************************/
+/** title **/
+.site-title, .page-title, .card-title, th {
+  font-family: monospace;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+/** control **/
+.button, .nav-tab, td {
+  font-family: monospace;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+/** normal **/
+.card-text {
+  font-family: monospace;
+  font-size: medium;
+  font-weight: normal;
+  text-align: left;
+}
+
+/******************************************************************************/
+/** spacing **/
+/******************************************************************************/
+/** containers **/
+.site-header {
+  margin: 0;
+  padding: 6px;
+}
+.site-body {
+  margin: 0;
+  padding: 12px;
+}
+.site-footer {
+  margin: 0;
+  padding: 8px;
+}
+
+.page-header {
+  margin: 0;
+  padding: 12px;
+}
+.page-body {
+  margin: 0;
+  padding: 12px;
+}
+.page-footer {
+  margin: 0;
+  padding: 8px;
+}
+
+.card {
+  margin: auto;
+  padding: 8px;
+}
+.card-header {
+  margin: 0;
+  padding: 8px;
+}
+.card-body {
+  margin: 0;
+  padding: 12px
+}
+.card-footer {
+  margin: 0;
+  padding: 8px;
+}
+
+/** elements **/
+.site-title {
+  margin: auto;
+  padding: 16px;
+  flex-grow: 1;
+}
+.site-logo {
+  margin: auto;
+  padding: 0;
+}
+
+.card-title {
+  margin: auto;
+  padding: 16px;
+  flex-grow: 1;
+}
+.card-text {
+  margin: auto;
+  padding: 6px;
+}
+
+/******************************************************************************/
+/** display structure **/
+/******************************************************************************/
+/** containers **/
+/*
+ * horizontal container
+*/
+.site-header, .site-footer, .page-header, .page-footer, .card-header,
+.card-footer, .nav-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+/*
+ * vertical container
+*/
+.site-body, .page-body, .card, .card-body, .card-tray {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+
+/*
+ * single container
+*/
+.frame-container, .frame-holder, .logo-holder {
+  display: flex;
+  align-content: center;
+}
+
+/** elements **/
+/*
+ * standard element
+*/
+.site-logo, .site-title, .page-title, .card-title, .nav-tab, .button, img, a {
+  display: block;
+}
+
+/******************************************************************************/
+/** dimensions **/
+/******************************************************************************/
+/** width **/
+.site-header, table, img {
+  max-width: 100%;
+}
+
+/******************************************************************************/
+/** platform specific styling **/
+/******************************************************************************/
+/******************************************************************************/
+/** mobile dimensions **/
+/******************************************************************************/
+/** containers **/
+.site-header {
+  width: 100%;
+  height: auto;
+}
+.site-body {
+  width: 100%;
+  min-height: 600px;
+}
+.site-footer {
+  width: 100%;
+  height: auto;
+}
+
+
+.page-header {
+  max-width: 100%;
+}
+.page-body {
+  max-width: 100%;
+  min-height: 600px;
+}
+.page-footer {
+  max-width: 100%;
+}
+
+.frame-container {
+  width: 100%;
+  min-height: 600px;
+}
+.frame-holder {
+  width: 100%;
+  min-height: 600px;
+}
+
+.logo-holder {
+  width: 16%;
+  height: 64px;
+}
+
+/** elements **/
+.site-logo {
+  width: 64px;
+  height: 64px;
+}
+.site-title {
+  width: 80%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.page-title {
+  width: 80%;
+  padding: 8px;
+}
+/** card sizes **/
+.small {
+  width: 40%;
+}
+.medium {
+  width: 60%;
+}
+.large {
+  width: 80%;
+}
+
+.card-header {
+  max-width: 100%;
+}
+
+.card-body {
+  max-width: 100%;
+}
+
+.card-tray {
+  max-width: 100%;
+}
+
+.card-footer {
+  max-width: 100%;
+}
+
+.card-title {
+  width: 60%;
+}
+
+.nav-bar {
+  height: auto;
+}
+.nav-tab {
+  width: 30%;
+  padding: 8px;
+}
+
+.button {
+  width: 30%;
+  padding: 8px;
+}
+
+
+/******************************************************************************/
+/** tablet dimensions **/
+/******************************************************************************/
+@media only screen and (min-width: 800px) {
+  .site-header {
+  }
+  .site-body {
+    width: 100%;
+  }
+  .site-footer {
+  }
+  .logo-holder {
+    width: 16%;
+    height: 64px;
+  }
+  .site-logo {
+    width: 64px;
+    height: 64px;
+  }
+  .site-title {
+    width: 80%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .frame-container {
+    width: auto;
+    min-width: 88%;
+    max-width: 100%;
+  }
+  .frame-holder {
+    width: 100%;
+  }
+  .page-header {
+    width: 100%;
+  }
+  .page-body {}
+  .page-footer {}
+  .page-title {
+    width: 80%;
+    padding: 8px;
+  }
+  /** card sizes **/
+  .small {
+    width: 40%;
+  }
+  .medium {
+    width: 60%;
+  }
+  .large {
+    width: 80%;
+  }
+
+  .card-header {
+  }
+  .card-body {
+
+  }
+  .card-tray {}
+  .card-footer {}
+  .card-title {
+    width: 60%;
+  }
+  .nav-bar {
+    width: 100%;
+    height: auto;
+  }
+  .nav-tab {
+    width: 24%;
+    padding: 8px;
+  }
+
+  .button {
+    width: 24%;
+    padding: 8px;
+  }
+}
+
+/******************************************************************************/
+/** widescreen dimensions **/
+/******************************************************************************/
+@media only screen and (min-width: 1200px) {
+  /** site elements **/
+  .site-header {
+  }
+  .site-body {
+    width: 100%;
+  }
+  .site-footer {
+  }
+  /** site header elements **/
+  .logo-holder {
+    width: 64px;
+    height: 64px;
+  }
+  .site-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .site-title {
+    width: 40%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .frame-container {
+    width: 800px;
+  }
+  .frame-holder {
+    width: 800px;
+  }
+  .page-header {
+    width: 100%;
+  }
+  .page-body {}
+  .page-footer {}
+  .page-title {
+    width: 80%;
+    padding: 8px;
+  }
+  /** card sizes **/
+  .small {
+    width: 20%;
+  }
+  .medium {
+    width: 40%;
+  }
+  .large {
+    width: 80%;
+  }
+  .card-header {
+  }
+
+  .card-body {
+  }
+
+  .card-tray {}
+  .card-footer {}
+
+  .card-title {
+    width: 60%;
+  }
+
+  .nav-bar {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-tab {
+    width: 16%;
+    padding: 8px;
+  }
+
+  .button {
+    width: 30%;
+  }
+}
